@@ -1,0 +1,19 @@
+page-add-holding {
+   ion-spinner {
+        margin-left: 20px;
+    }
+ 
+    .error-message {
+        background-color: map-get($colors, danger);
+        color: #fff;
+        border: 1px solid #c0392b;
+        padding: 10px;
+    }
+
+    ion-footer {
+        padding: 4px !important;
+        padding-left: 16px !important;
+        color: #474747;
+        background-color: map-get($colors, light);
+    }
+}

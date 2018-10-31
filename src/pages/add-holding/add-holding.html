@@ -1,0 +1,52 @@
+<ion-header>
+
+  <ion-navbar color='primary'>
+    <ion-title *ngIf='!edit'>Add Holding</ion-title>
+    <ion-title *ngIf='edit'>Edit Holding</ion-title>    
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <div class="message">
+
+      <p>To add a holding you will need to supply the appropriate symbol for the cryptocurrency, and the symbol for the currency
+        you would like to display the values in.</p>
+
+    </div>
+
+    <ion-list>
+    
+      <ion-item>
+        <ion-label stacked>Crypto Code</ion-label>
+        <ion-input [(ngModel)]="cryptoCode" placeholder="(e.g. BTC, LTC, ETH)" type="text"></ion-input>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label stacked>Display Currency Code</ion-label>
+        <ion-input [(ngModel)]="displayCurrency" placeholder="(e.g. USD, CAD, AUD)" type="text"></ion-input>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label stacked>Amount Holding</ion-label>
+        <ion-input [(ngModel)]="amountHolding" type="number"></ion-input>
+      </ion-item>
+    
+    </ion-list>
+
+    <button ion-button full (click)="addHolding()" [disabled]="checkingValidity" *ngIf='!edit'>Add Holding
+      <ion-spinner *ngIf="checkingValidity"></ion-spinner>
+    </button>
+    <button ion-button full (click)="editHoldingValues()" [disabled]="checkingValidity" *ngIf='edit'>Edit Holding
+      <ion-spinner *ngIf="checkingValidity"></ion-spinner>
+    </button>
+    
+    <p class="error-message" *ngIf="cryptoUnavailable">Sorry, that combination is not currently available. Make sure to only include a single code.</p>
+    <p class="error-message" *ngIf="noConnection">Sorry, you need to be online to add new holdings.</p>
+</ion-content>
+<ion-footer padding (click)='seeSupport()'>
+  <p>
+    <strong>Search for supported currencies.</strong>
+  </p>
+</ion-footer>

@@ -1,0 +1,26 @@
+<!--
+  Generated template for the MarketDetailsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Market Details</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card *ngFor='let market of holding.markets'>
+    <ion-card-header class="market_name">
+       {{market.market}}
+    </ion-card-header>
+    <ion-card-content>
+      <p><b>Price : </b>{{market.price}}</p>
+      <p><b>Volume : </b>{{market.volume}}</p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
